@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "HakgyoansimAllimjangTTF-R";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimAllimjangTTF-R.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "HakgyoansimAllimjangTTF-B";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimAllimjangTTF-B.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@theme {
+  --color-maincolor: #35bdf2;
+  --color-maincolor-deep: #3dadf2;
+  --color-maincolor-coral: #05f2db;
+  --color-maincolor-purple: #7e84f2;
+  --font-maintheme: "HakgyoansimAllimjangTTF-R";
+  --font-maintheme-bold: "HakgyoansimAllimjangTTF-B";
+  --font-Pretendard: "Pretendard-Regular";
+}
