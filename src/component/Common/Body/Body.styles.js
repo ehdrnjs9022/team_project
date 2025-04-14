@@ -11,6 +11,7 @@ export const Header = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 50px;
+  font-weight: bold;
 `;
 
 export const Welcome = styled.div`
@@ -19,15 +20,14 @@ export const Welcome = styled.div`
   align-items: center;
 `;
 export const LeftBox = styled.div`
-  display : flex;
-  align-items ; center;
-  height 100px;
-
-
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
 `;
 
 export const RightBox = styled.div`
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Box = styled.div`
@@ -36,14 +36,6 @@ export const Box = styled.div`
   border-radius: 12px;
   margin: 40px;
   witdh 100px;
-`;
-
-export const NicknameText = styled.p`
-  font-size: 14px;
-  color: #555;
-  cursor: pointer;
-  text-decoration: underline;
-  margin-top: 8px;
 `;
 
 export const ProfileImage = styled.div`
@@ -68,6 +60,8 @@ export const FormWrapper = styled.form`
 `;
 
 export const Input = styled.input`
+  display: flex;
+  justify-content: center;
   width: 100%;
   padding: 10px;
   margin: 12px 0;
@@ -75,12 +69,9 @@ export const Input = styled.input`
   border: 1px solid #ccc;
 `;
 
-export const ButtonGroup = styled.div`
-  display: flex;
-`;
-
 export const Button = styled.button`
   flex: 1;
+
   padding: 10px;
   border: 1px solid #aaa;
   border-radius: 6px;
@@ -91,6 +82,33 @@ export const Button = styled.button`
     background: #eee;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
 export const Span = styled.span`
   display: inline-block;
+`;
+export const ModalContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+export const ModalBox = styled.div`
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
 `;

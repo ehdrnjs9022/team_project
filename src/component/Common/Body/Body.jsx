@@ -7,21 +7,18 @@ import {
   LeftBox,
   RightBox,
   Button,
-  Span,
+  ModalContainer,
+  ModalBox,
+  Input,
+  ButtonWrapper,
+  MoreBox,
 } from "./Body.styles";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Body = () => {
-  const [nickName, setNickName] = useState("");
-  const [profile, setProfile] = useState("");
-  const [point, setPoint] = useState("");
-  const [reply, setReply] = useState("");
+  const [activeForm, setActiveForm] = useState("");
+  const Navi = useNavigate();
 
-  const handleNickName = () => {
-    console.log("닉네임 수정 클릭됨");
-  };
-  const handleProfile = () => {
-    console.log("프로필 수정 클릭됨");
-  };
   const handleReply = () => {
     console.log("댓글 수정 클릭됨");
   };
@@ -44,24 +41,59 @@ const Body = () => {
       <Box>
         <Welcome>
           <LeftBox>
-            <Button onClick={handleNickName}>닉네임수정</Button>
-
-            <Button onClick={handleProfile}>프로필수정</Button>
+            <Button
+              onClick={() => {
+                setActiveForm("nickName");
+              }}
+            >
+              닉네임수정
+            </Button>
+            <Button
+              onClick={() => {
+                setActiveForm("profile");
+              }}
+            >
+              프로필수정
+            </Button>
           </LeftBox>
+          {activeForm === "nickName" && (
+            <ModalContainer>
+              <ModalBox>
+                <div>
+                  <p>변경할 닉네임을 입력해주세요</p>
+                  <Input placeholder="변경할 닉네임을 입력해주세요" />
+                </div>
+                <ButtonWrapper>
+                  <Button>확인</Button>
+                  <Button>취소</Button>
+                </ButtonWrapper>
+              </ModalBox>
+            </ModalContainer>
+          )}
 
-          <RightBox></RightBox>
-          <button>포인트</button>
+          <RightBox>
+            <Button onClick={() => Navi("/MyPage")}>내정보</Button>
+            <Button onClick={() => Navi("Point")}>포인트</Button>
+          </RightBox>
         </Welcome>
       </Box>
 
+      <LeftBox>예약 현황</LeftBox>
+
       <Box>
-        <Button>더보기</Button>
+        <div>예약차종</div>
+        <div>기간</div>
+        <div>위치 </div>
+        <div>차량정보</div>
       </Box>
+
+      <LeftBox>사용 내역</LeftBox>
 
       <Box>
         <Button>더보기</Button>
       </Box>
 
+      <LeftBox>내 활동</LeftBox>
       <Box>
         <Button onClick={handleReply}>작성한 댓글 조회</Button>
         <Button onClick={handleReport}>작성한 문의 게시글 조회</Button>
