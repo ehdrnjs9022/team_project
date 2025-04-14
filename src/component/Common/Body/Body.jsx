@@ -3,20 +3,19 @@ import {
   Container,
   Box,
   Header,
-  Welcome,
   LeftBox,
-  RightBox,
   Button,
   ModalContainer,
   ModalBox,
   Input,
-  ButtonWrapper,
-  MoreBox,
+  ButtonWrapper,MoreButton
+
 } from "./Body.styles";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Body = () => {
-  const [activeForm, setActiveForm] = useState("");
+  const [activeForm, setActiveForm] = useState("profile");
+  const [selectedImage, setSelectedImage] = useState(null);
   const Navi = useNavigate();
 
   const handleReply = () => {
@@ -28,19 +27,33 @@ const Body = () => {
   const handleReview = () => {
     console.log("리뷰게시판 수정 클릭됨");
   };
+  const handleEdit = () => {
+    console.log("수정")
+  }
+  const handleFileChange = (e) =>{
+    const file = e.target.files[0]
+    if(file) {
+      const reader = new FileReader();
+
+      reader.onloadend =() => {
+        setSelectedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }else{
+      setSelectedImage("img/test.jpg");
+    }
+  }
+
 
   return (
     <Container>
       <Header>마이페이지</Header>
+        <div>
 
-      <LeftBox>
         <p>XXX님 안녕하세요</p>
         <p className="nickname"></p>
-      </LeftBox>
-
+           </div>
       <Box>
-        <Welcome>
-          <LeftBox>
             <Button
               onClick={() => {
                 setActiveForm("nickName");
@@ -48,15 +61,8 @@ const Body = () => {
             >
               닉네임수정
             </Button>
-            <Button
-              onClick={() => {
-                setActiveForm("profile");
-              }}
-            >
-              프로필수정
-            </Button>
-          </LeftBox>
-          {activeForm === "nickName" && (
+
+            {activeForm === "nickName" && (
             <ModalContainer>
               <ModalBox>
                 <div>
@@ -71,14 +77,34 @@ const Body = () => {
             </ModalContainer>
           )}
 
-          <RightBox>
+
+            <Button
+              onClick={() => {
+                setActiveForm("profile");
+              }}
+            >
+              프로필수정
+            </Button>
+           {activeForm === "profile" && (
+              <ModalContainer>
+                <ModalBox>
+                <Input type="file" onChange={handleFileChange}/>
+                <ButtonWrapper>
+                  <Button onClick={handleEdit}>수정하기</Button>
+                  <Button onClick={() => {setActiveForm("/")}}>취소</Button>
+                </ButtonWrapper>
+                </ModalBox>
+              </ModalContainer>
+
+           )}
+
+           <div>
             <Button onClick={() => Navi("/MyPage")}>내정보</Button>
             <Button onClick={() => Navi("Point")}>포인트</Button>
-          </RightBox>
-        </Welcome>
+          </div>
+         
       </Box>
-
-      <LeftBox>예약 현황</LeftBox>
+      <div>예약 현황</div>
 
       <Box>
         <div>예약차종</div>
@@ -86,14 +112,23 @@ const Body = () => {
         <div>위치 </div>
         <div>차량정보</div>
       </Box>
+      <MoreButton>
+        <Button>더보기</Button>
+        </MoreButton>
 
-      <LeftBox>사용 내역</LeftBox>
+
+      <div>사용 내역</div>
 
       <Box>
-        <Button>더보기</Button>
+         <div>예약차종</div>
+        <div>기간</div>
+        <div>위치 </div>
+        <div>차량정보</div>
       </Box>
-
-      <LeftBox>내 활동</LeftBox>
+          <MoreButton>
+          <Button>더보기</Button>
+          </MoreButton>
+      <div>내 활동</div>
       <Box>
         <Button onClick={handleReply}>작성한 댓글 조회</Button>
         <Button onClick={handleReport}>작성한 문의 게시글 조회</Button>

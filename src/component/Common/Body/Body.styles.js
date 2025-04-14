@@ -14,29 +14,27 @@ export const Header = styled.div`
   font-weight: bold;
 `;
 
-export const Welcome = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
+
 export const LeftBox = styled.div`
   display: flex;
-  justify-content: space-between;
-  font-size: 20px;
+  font-size: 15px;
 `;
 
 export const RightBox = styled.div`
   display: flex;
-  justify-content: space-between;
+  font-size: 15px;
 `;
 
 export const Box = styled.div`
+  display:flex;
+  justify-content:space-between;
   border: 1px solid #ddd;
-  padding: 50px;
+  padding: 40px;
   border-radius: 12px;
   margin: 40px;
-  witdh 100px;
+  
 `;
+
 
 export const ProfileImage = styled.div`
   width: 80px;
@@ -71,27 +69,33 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   flex: 1;
-
   padding: 10px;
   border: 1px solid #aaa;
   border-radius: 6px;
   cursor: pointer;
   background: #f9f9f9;
-
+  width: 100px;
   &:hover {
     background: #eee;
   }
 `;
+export const MoreButton =styled.div`
+  padding: 10px;
+  width: 100px; 
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center; 
+  margin: auto; 
 
+
+`;
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
 `;
 
-export const Span = styled.span`
-  display: inline-block;
-`;
+
 export const ModalContainer = styled.div`
   position: fixed;
   top: 0;
