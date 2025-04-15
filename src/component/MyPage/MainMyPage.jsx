@@ -9,6 +9,9 @@ import {
   ModalDeleteBox,
   CheckBox,
   Area,
+  FixedDeleteButton,
+  DeleteWrapper,
+  GradeText,
 } from "./MainMypage.style";
 import { LeftBox, RightBox, Font, Input } from "./MainMypage.style";
 
@@ -93,7 +96,7 @@ const MainMyPage = () => {
           <ModalContainer>
             <ModalBox>
               <form onSubmit={submitName}>
-                <div>변경하기</div>
+                <GradeText>변경하기</GradeText>
                 <div>
                   <Input
                     type="text"
@@ -134,7 +137,9 @@ const MainMyPage = () => {
             <div>
               <Button onClick={() => setActiveForm("password")}>
                 비밀번호 변경
+                
               </Button>
+              
             </div>
           </RightBox>
         </Box>
@@ -142,7 +147,7 @@ const MainMyPage = () => {
           <ModalContainer>
             <ModalBox>
               <form onSubmit={submitModfyPw}>
-                <div>변경하기</div>
+                <GradeText>변경하기</GradeText>
                 <div>
                   <Input
                     text="password"
@@ -171,20 +176,30 @@ const MainMyPage = () => {
           </ModalContainer>
         )}
 
-        <div>
-          <Button onClick={() => setActiveForm("delete")}>회원탈퇴</Button>
-        </div>
+        <DeleteWrapper>
+          <FixedDeleteButton onClick={() => setActiveForm("delete")}>회원탈퇴</FixedDeleteButton>
+        </DeleteWrapper>
         {activeForm === "delete" && (
           <ModalContainer>
             <ModalDeleteBox>
               <Header>회원탈퇴</Header>
-              <h2>서비스 탈퇴전 주의사항을 확인해주세요</h2>
+              <div>서비스 탈퇴전 주의사항을 확인해주세요</div>
               <Box>탈퇴할 계정</Box>
               <hr />
               <div>
-                <Box>계정 복구 및 파기</Box>
-
-                <Box>탈퇴 후 재 가입</Box>
+                <Box>계정 파기
+                  <div>
+                  <p>탈퇴 시 개인정보와 데이터가 보존될 수 없습니다.</p>
+                  <p>탈퇴 시 개인정보오 템플릿, 문서등 모든 데이터가 삭제됩니다
+                    삭제된 데이터는 복구되지 않으니 필요한 데이터는 미리 백업해 주세요.
+                  </p>
+                  </div>
+                </Box>
+                
+                <Box>탈퇴 후 재 가입
+                  <p>탈퇴 시 계정파기가 완료되면, 해당 계정의 이메일 주소로 새로 가입할 수 있습니다.</p>
+                  <p>단 기존 정보는 파기되어 복구할 수 없습니다.</p>
+                </Box>
                 <Box>
                   <div>
                     탈퇴사유
@@ -194,7 +209,7 @@ const MainMyPage = () => {
               </div>
               <CheckBox>
                 <input type="checkbox" />
-                <p>탈퇴 주의 사항을 모두 확인했으며, 이에 동의 합니다.</p>
+                <div>탈퇴 주의 사항을 모두 확인했으며, 이에 동의 합니다.</div>
               </CheckBox>
 
               <div>
@@ -216,7 +231,7 @@ const MainMyPage = () => {
                   <div>탈퇴 할 계정</div>
                 </Box>
                 <div>
-                  <Font>비밀번호 재 확인 : </Font>
+                  <Font>비밀번호 재 확인  </Font>
                   <Input
                     type="password"
                     onChange={handelPassword}

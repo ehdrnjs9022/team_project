@@ -94,13 +94,20 @@ export const Button = styled.button`
     background: #eee;
   }
 `;
-export const MoreButton = styled.div`
+export const MoreButton = styled.button`
+ display: block;
+  margin: 20px auto;
   padding: 10px;
-  width: 100px;
-  border-radius: 6px;
+  width: 120px;
   cursor: pointer;
+  background: #f9f9f9;
+  border: 1px solid #aaa;
   text-align: center;
-  margin: auto;
+  border-radius:6px;
+
+  &:hover {
+    background: #eee;
+  }
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -130,12 +137,35 @@ export const ModalBox = styled.div`
   z-index: 1001;
 `;
 export const Section = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-between; 
+  gap: 40px; 
+  width: 100%;
+  padding: 20px;
   border: 1px solid #ddd;
-  padding: 40px;
-  border-radius: 12px;
-  margin: 40px;
-  min-width: 1000px;
-  max-width: 1000px;
+  border-radius: 10px;
+  text-align: center;
+`;
+export const InfoSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+  margin-top: 20px;
+`;
+
+export const GradeText = styled.div`
+  font-size: 22px;
+  font-weight: bold;
+  margin :20px;
+`;
+
+export const InfoButton = styled.button`
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    background-color: #f0f0f0;
+  }
 `;

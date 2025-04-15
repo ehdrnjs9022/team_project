@@ -10,10 +10,12 @@ import {
   ButtonWrapper,
   MoreButton,
   FirstBox,
-  SecondBox,
   ThirdBox,
   ProfileTextBox,
   Section,
+  InfoSection,
+  GradeText,
+  InfoButton
 } from "./Body.styles";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -83,7 +85,7 @@ const Body = () => {
     <Container>
       <Header>마이페이지</Header>
       <div>
-        <p>XXX님 안녕하세요</p>
+        <GradeText>XXX님 안녕하세요</GradeText>
       </div>
 
       <Box>
@@ -111,15 +113,15 @@ const Body = () => {
           </ProfileTextBox>
         </FirstBox>
 
-        <SecondBox>
-          <p>xxx님등급은 브론즈입니다</p>
-        </SecondBox>
+        <InfoSection >
+          <GradeText>XXX 님 등급은 브론즈입니다</GradeText>
+        </InfoSection>
 
         {activeForm === "nickName" && (
           <ModalContainer>
             <ModalBox>
               <form onSubmit={submitNickname}>
-                <p>변경할 닉네임을 입력해주세요</p>
+                <GradeText>변경할 닉네임을 입력해주세요</GradeText>
                 <Input
                   onChange={handelNameEdit}
                   placeholder="변경할 닉네임을 입력해주세요"
@@ -139,7 +141,7 @@ const Body = () => {
           <ModalContainer>
             <ModalBox>
               <form onSubmit={submitProfile}>
-                <div>첨부파일</div>
+                <GradeText>첨부파일</GradeText>
                 <Input type="file" onChange={handleFileChange} />
                 {selectedImage && (
                   <div>
@@ -156,13 +158,13 @@ const Body = () => {
         )}
 
         <ThirdBox>
-          <Button onClick={() => navi("/MyPage")}>내정보</Button>
+          <InfoButton onClick={() => navi("/MyPage")}>내정보</InfoButton>
         </ThirdBox>
         <ThirdBox>
-          <Button onClick={() => navi("Point")}>포인트</Button>
+          <InfoButton onClick={() => navi("Point")}>포인트</InfoButton>
         </ThirdBox>
       </Box>
-      <div>예약 현황</div>
+      <GradeText>예약 현황</GradeText>
 
       <Section>
         <div>예약차종</div>
@@ -170,11 +172,11 @@ const Body = () => {
         <div>위치 </div>
         <div>차량정보</div>
       </Section>
-      <MoreButton>
-        <Button>더보기</Button>
-      </MoreButton>
+      <ButtonWrapper>
+        <MoreButton>더보기</MoreButton>
+      </ButtonWrapper>
 
-      <div>사용 내역</div>
+      <GradeText>사용 내역</GradeText>
 
       <Section>
         <div>사용차종</div>
@@ -182,10 +184,10 @@ const Body = () => {
         <div>위치 </div>
         <div>차량정보</div>
       </Section>
-      <MoreButton>
-        <Button>더보기</Button>
-      </MoreButton>
-      <div>내 활동</div>
+      <ButtonWrapper>
+        <MoreButton>더보기</MoreButton>
+      </ButtonWrapper>
+      <GradeText>내 활동</GradeText>
       <Box>
         <Button onClick={handleReply}>작성한 댓글 조회</Button>
         <Button onClick={handleReport}>작성한 문의 게시글 조회</Button>
