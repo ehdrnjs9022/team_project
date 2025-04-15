@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 60px auto;
-  padding: 20px;
-  margin: 200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
 `;
 
 export const Header = styled.div`
@@ -14,39 +14,54 @@ export const Header = styled.div`
   font-weight: bold;
 `;
 
-
-export const LeftBox = styled.div`
-  display: flex;
-  font-size: 15px;
-`;
-
-export const RightBox = styled.div`
-  display: flex;
-  font-size: 15px;
-`;
-
 export const Box = styled.div`
-  display:flex;
-  justify-content:space-between;
+  display: flex;
   border: 1px solid #ddd;
+  justify-content: center;
+  align-items: center;
   padding: 40px;
   border-radius: 12px;
   margin: 40px;
-  
+  min-width: 1000px;
+  max-width: 1000px;
 `;
 
-
-export const ProfileImage = styled.div`
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: #ccc;
-  color: white;
-  font-size: 36px;
+export const NicknameBox = styled.div`
   display: flex;
+  align-items: flex-start;
+  gap: 20px;
+`;
+export const ButtonColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const FirstBox = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 10px;
+`;
+
+export const ProfileTextBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+export const SecondBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+export const ThirdBox = styled.div`
+  display: flex;
   justify-content: center;
-  margin: 10px auto;
+  align-items: column;
+  text-align: center;
 `;
 
 export const FormWrapper = styled.form`
@@ -74,27 +89,25 @@ export const Button = styled.button`
   border-radius: 6px;
   cursor: pointer;
   background: #f9f9f9;
-  width: 100px;
+  width: 150px;
   &:hover {
     background: #eee;
   }
 `;
-export const MoreButton =styled.div`
+export const MoreButton = styled.div`
   padding: 10px;
-  width: 100px; 
+  width: 100px;
   border-radius: 6px;
   cursor: pointer;
-  text-align: center; 
-  margin: auto; 
-
-
+  text-align: center;
+  margin: auto;
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  align-items: center;
 `;
-
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -115,4 +128,14 @@ export const ModalBox = styled.div`
   width: 400px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
   z-index: 1001;
+`;
+export const Section = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #ddd;
+  padding: 40px;
+  border-radius: 12px;
+  margin: 40px;
+  min-width: 1000px;
+  max-width: 1000px;
 `;
